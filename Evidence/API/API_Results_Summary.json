@@ -1,0 +1,67 @@
+{
+  "started_at_utc": "2026-10-19T10:24:27.800Z",
+  "finished_at_utc": "2026-10-19T10:24:33.387Z",
+  "requests": {
+    "total": 10,
+    "pending": 0,
+    "failed": 0
+  },
+  "assertions": {
+    "total": 55,
+    "pending": 0,
+    "failed": 0
+  },
+  "failures": [],
+  "cases": [
+    {
+      "id": "API-01",
+      "status": 200,
+      "result": "PASS"
+    },
+    {
+      "id": "API-02",
+      "status": 200,
+      "result": "PASS"
+    },
+    {
+      "id": "API-03",
+      "status": 200,
+      "result": "PASS"
+    },
+    {
+      "id": "API-04",
+      "status": 200,
+      "result": "PASS"
+    },
+    {
+      "id": "API-05",
+      "status": 200,
+      "result": "PASS"
+    },
+    {
+      "id": "API-06",
+      "status": 200,
+      "result": "PASS"
+    },
+    {
+      "id": "API-07",
+      "status": 200,
+      "result": "PASS"
+    },
+    {
+      "id": "API-08",
+      "status": 200,
+      "result": "PASS"
+    },
+    {
+      "id": "API-09",
+      "status": 404,
+      "result": "PASS"
+    },
+    {
+      "id": "API-10",
+      "status": 401,
+      "result": "PASS"
+    }
+  ]
+}

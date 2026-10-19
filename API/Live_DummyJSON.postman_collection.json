@@ -1,0 +1,376 @@
+{
+  "info": {
+    "name": "Live QA Portfolio | DummyJSON | 10 read-only cases",
+    "_postman_id": "d59f02f9-1e7c-4c16-bab4-513051d390e8",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": "Independent QA practice against the live public demo at https://dummyjson.com. Ten read-only HTTP requests covering retrieval, pagination, field selection, search, categories, sorting, missing resources and unauthenticated access. No local simulator, company system, production customer data, account creation, or server writes are used. Data fixtures may change; review preconditions before interpreting a failure as a defect. Scripts were executed using Newman and can be imported into Postman. Official sources: https://dummyjson.com/docs/products and https://dummyjson.com/docs/auth ."
+  },
+  "auth": {
+    "type": "noauth"
+  },
+  "variable": [
+    {
+      "key": "baseUrl",
+      "value": "https://dummyjson.com",
+      "type": "string",
+      "description": "Live public practice API. Keep the default to repeat the live tests."
+    }
+  ],
+  "item": [
+    {
+      "name": "API-01 | Retrieve one existing product",
+      "request": {
+        "method": "GET",
+        "auth": {
+          "type": "noauth"
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/products/1",
+        "description": "Type: Positive / functional\n\nPrecondition: Public product fixture with ID 1 exists; no login required.\n\nExpected: HTTP 200; JSON object with id 1, a non-empty title, a non-negative numeric price, and a category.\n\nSource: https://dummyjson.com/docs/products"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// API-01: Retrieve one existing product. Read-only live public demo API request.",
+              "pm.test(\"HTTP status is 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"Response declares JSON\", function () { pm.expect(pm.response.headers.get(\"Content-Type\")).to.match(/application\\/json/i); });",
+              "const body = pm.response.json();",
+              "pm.test(\"Requested product ID is returned\", function () { pm.expect(body.id).to.eql(1); });",
+              "pm.test(\"Title is a non-empty string\", function () { pm.expect(body.title).to.be.a(\"string\").and.not.empty; });",
+              "pm.test(\"Price is numeric and non-negative\", function () { pm.expect(body.price).to.be.a(\"number\").and.at.least(0); });",
+              "pm.test(\"Category is a non-empty string\", function () { pm.expect(body.category).to.be.a(\"string\").and.not.empty; });"
+            ]
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "API-02 | Limit the first page and select fields",
+      "request": {
+        "method": "GET",
+        "auth": {
+          "type": "noauth"
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/products?limit=3&skip=0&select=title,price",
+        "description": "Type: Positive / pagination and projection\n\nPrecondition: At least three product fixtures exist; public endpoint available.\n\nExpected: HTTP 200; three products, skip 0, limit 3; each product has only id, title and price.\n\nSource: https://dummyjson.com/docs/products"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// API-02: Limit the first page and select fields. Read-only live public demo API request.",
+              "pm.test(\"HTTP status is 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"Response declares JSON\", function () { pm.expect(pm.response.headers.get(\"Content-Type\")).to.match(/application\\/json/i); });",
+              "const body = pm.response.json();",
+              "pm.test(\"Page contains exactly three products\", function () { pm.expect(body.products).to.be.an(\"array\").with.lengthOf(3); });",
+              "pm.test(\"Pagination metadata matches request\", function () { pm.expect(body.skip).to.eql(0); pm.expect(body.limit).to.eql(3); pm.expect(body.total).to.be.above(3); });",
+              "pm.test(\"Selected fields and identity only are returned\", function () { body.products.forEach(p => pm.expect(p).to.have.all.keys(\"id\", \"title\", \"price\")); });",
+              "pm.test(\"Projected field types are correct\", function () { body.products.forEach(p => { pm.expect(p.id).to.be.a(\"number\"); pm.expect(p.title).to.be.a(\"string\"); pm.expect(p.price).to.be.a(\"number\"); }); });"
+            ]
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "API-03 | Skip the first three product fixtures",
+      "request": {
+        "method": "GET",
+        "auth": {
+          "type": "noauth"
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/products?limit=3&skip=3&select=title,price",
+        "description": "Type: Positive / pagination\n\nPrecondition: Default product fixture order begins with IDs 1, 2, 3; at least six fixtures exist. This fixture-order assumption was checked during exploration.\n\nExpected: HTTP 200; three products, skip 3, limit 3; IDs 1, 2, 3 are excluded; no duplicate IDs.\n\nSource: https://dummyjson.com/docs/products"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// API-03: Skip the first three product fixtures. Read-only live public demo API request.",
+              "pm.test(\"HTTP status is 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"Response declares JSON\", function () { pm.expect(pm.response.headers.get(\"Content-Type\")).to.match(/application\\/json/i); });",
+              "const body = pm.response.json();",
+              "pm.test(\"Second page contains three products\", function () { pm.expect(body.products).to.be.an(\"array\").with.lengthOf(3); });",
+              "pm.test(\"Offset metadata is correct\", function () { pm.expect(body.skip).to.eql(3); pm.expect(body.limit).to.eql(3); });",
+              "pm.test(\"First page IDs were skipped\", function () { const ids = body.products.map(p=>p.id); [1,2,3].forEach(id => pm.expect(ids).not.to.include(id)); });",
+              "pm.test(\"Page contains unique product IDs\", function () { const ids = body.products.map(p=>p.id); pm.expect(new Set(ids).size).to.eql(ids.length); });"
+            ]
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "API-04 | Search for a known product keyword",
+      "request": {
+        "method": "GET",
+        "auth": {
+          "type": "noauth"
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/products/search?q=mascara",
+        "description": "Type: Positive / search\n\nPrecondition: At least one fixture has mascara in its title, description, or tags; verified during exploration.\n\nExpected: HTTP 200; non-empty results; returned product text matches mascara and IDs are unique.\n\nSource: https://dummyjson.com/docs/products"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// API-04: Search for a known product keyword. Read-only live public demo API request.",
+              "pm.test(\"HTTP status is 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"Response declares JSON\", function () { pm.expect(pm.response.headers.get(\"Content-Type\")).to.match(/application\\/json/i); });",
+              "const body = pm.response.json();",
+              "pm.test(\"Search returns at least one product\", function () { pm.expect(body.products).to.be.an(\"array\").and.not.empty; });",
+              "pm.test(\"Every result contains the search keyword\", function () { body.products.forEach(p => pm.expect([p.title, p.description, ...(p.tags || [])].join(\" \").toLowerCase()).to.include(\"mascara\")); });",
+              "pm.test(\"Search result IDs are unique\", function () { const ids=body.products.map(p=>p.id); pm.expect(new Set(ids).size).to.eql(ids.length); });",
+              "pm.test(\"Result count agrees with returned search page\", function () { pm.expect(body.total).to.eql(body.products.length); pm.expect(body.skip).to.eql(0); });"
+            ]
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "API-05 | Search with a keyword that has no matches",
+      "request": {
+        "method": "GET",
+        "auth": {
+          "type": "noauth"
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/products/search?q=qa_no_match_8e521d7a",
+        "description": "Type: Negative / empty-result equivalence class\n\nPrecondition: The unique keyword qa_no_match_8e521d7a is absent from the public fixtures.\n\nExpected: HTTP 200; products is an empty array; total is 0 and skip is 0. A valid search with no results is not a missing endpoint.\n\nSource: https://dummyjson.com/docs/products"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// API-05: Search with a keyword that has no matches. Read-only live public demo API request.",
+              "pm.test(\"HTTP status is 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"Response declares JSON\", function () { pm.expect(pm.response.headers.get(\"Content-Type\")).to.match(/application\\/json/i); });",
+              "const body = pm.response.json();",
+              "pm.test(\"Products array is empty\", function () { pm.expect(body.products).to.be.an(\"array\").with.lengthOf(0); });",
+              "pm.test(\"No matches are counted\", function () { pm.expect(body.total).to.eql(0); });",
+              "pm.test(\"Empty result starts at offset zero\", function () { pm.expect(body.skip).to.eql(0); });"
+            ]
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "API-06 | Filter products by category",
+      "request": {
+        "method": "GET",
+        "auth": {
+          "type": "noauth"
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/products/category/beauty",
+        "description": "Type: Positive / category filter\n\nPrecondition: The documented category beauty exists and has products.\n\nExpected: HTTP 200; non-empty products array; every returned product belongs to beauty; IDs are unique.\n\nSource: https://dummyjson.com/docs/products"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// API-06: Filter products by category. Read-only live public demo API request.",
+              "pm.test(\"HTTP status is 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"Response declares JSON\", function () { pm.expect(pm.response.headers.get(\"Content-Type\")).to.match(/application\\/json/i); });",
+              "const body = pm.response.json();",
+              "pm.test(\"Beauty category contains products\", function () { pm.expect(body.products).to.be.an(\"array\").and.not.empty; });",
+              "pm.test(\"Every product belongs to beauty\", function () { body.products.forEach(p => pm.expect(p.category).to.eql(\"beauty\")); });",
+              "pm.test(\"Category result IDs are unique\", function () { const ids=body.products.map(p=>p.id); pm.expect(new Set(ids).size).to.eql(ids.length); });",
+              "pm.test(\"Category total covers the returned page\", function () { pm.expect(body.total).to.be.at.least(body.products.length); pm.expect(body.skip).to.eql(0); });"
+            ]
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "API-07 | Sort products by ascending price",
+      "request": {
+        "method": "GET",
+        "auth": {
+          "type": "noauth"
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/products?sortBy=price&order=asc&limit=5&select=title,price",
+        "description": "Type: Positive / sorting\n\nPrecondition: At least five product fixtures with numeric prices exist.\n\nExpected: HTTP 200; five products; numeric prices in non-decreasing order, including equal prices as valid.\n\nSource: https://dummyjson.com/docs/products"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// API-07: Sort products by ascending price. Read-only live public demo API request.",
+              "pm.test(\"HTTP status is 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"Response declares JSON\", function () { pm.expect(pm.response.headers.get(\"Content-Type\")).to.match(/application\\/json/i); });",
+              "const body = pm.response.json();",
+              "pm.test(\"Sorted page contains five products\", function () { pm.expect(body.products).to.be.an(\"array\").with.lengthOf(5); });",
+              "pm.test(\"All compared prices are numeric\", function () { body.products.forEach(p=>pm.expect(p.price).to.be.a(\"number\")); });",
+              "pm.test(\"Prices are sorted in ascending order\", function () { for (let i=1; i<body.products.length; i++) pm.expect(body.products[i].price).to.be.at.least(body.products[i-1].price); });",
+              "pm.test(\"Sorting preserves the requested page size\", function () { pm.expect(body.limit).to.eql(5); pm.expect(body.skip).to.eql(0); });"
+            ]
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "API-08 | Retrieve category names for filter controls",
+      "request": {
+        "method": "GET",
+        "auth": {
+          "type": "noauth"
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/products/category-list",
+        "description": "Type: Positive / response schema\n\nPrecondition: Public product category list is available.\n\nExpected: HTTP 200; non-empty array of unique non-empty strings; documented example category beauty is included.\n\nSource: https://dummyjson.com/docs/products"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// API-08: Retrieve category names for filter controls. Read-only live public demo API request.",
+              "pm.test(\"HTTP status is 200\", function () { pm.response.to.have.status(200); });",
+              "pm.test(\"Response declares JSON\", function () { pm.expect(pm.response.headers.get(\"Content-Type\")).to.match(/application\\/json/i); });",
+              "const body = pm.response.json();",
+              "pm.test(\"Category list is a non-empty array\", function () { pm.expect(body).to.be.an(\"array\").and.not.empty; });",
+              "pm.test(\"Each category is a non-empty string\", function () { body.forEach(category=>pm.expect(category).to.be.a(\"string\").and.not.empty); });",
+              "pm.test(\"Category names are unique\", function () { pm.expect(new Set(body).size).to.eql(body.length); });",
+              "pm.test(\"Documented beauty category is present\", function () { pm.expect(body).to.include(\"beauty\"); });"
+            ]
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "API-09 | Reject a non-existent product identifier",
+      "request": {
+        "method": "GET",
+        "auth": {
+          "type": "noauth"
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/products/999999",
+        "description": "Type: Negative / resource not found\n\nPrecondition: Product ID 999999 does not exist. HTTP 404 and a safe JSON error are exploratory acceptance expectations, rather than an explicit guarantee in the product prose documentation.\n\nExpected: HTTP 404; JSON object with a non-empty message; no product id, title, or price fields.\n\nSource: https://dummyjson.com/docs/products"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// API-09: Reject a non-existent product identifier. Read-only live public demo API request.",
+              "pm.test(\"HTTP status is 404\", function () { pm.response.to.have.status(404); });",
+              "pm.test(\"Response declares JSON\", function () { pm.expect(pm.response.headers.get(\"Content-Type\")).to.match(/application\\/json/i); });",
+              "const body = pm.response.json();",
+              "pm.test(\"A readable JSON error message is returned\", function () { pm.expect(body.message).to.be.a(\"string\").and.not.empty; });",
+              "pm.test(\"Missing resource is not returned as a product\", function () { [\"id\",\"title\",\"price\"].forEach(key=>pm.expect(body).not.to.have.property(key)); });"
+            ]
+          }
+        }
+      ],
+      "response": []
+    },
+    {
+      "name": "API-10 | Reject access to current user without a token",
+      "request": {
+        "method": "GET",
+        "auth": {
+          "type": "noauth"
+        },
+        "header": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          }
+        ],
+        "url": "{{baseUrl}}/auth/me",
+        "description": "Type: Negative / authentication\n\nPrecondition: No Authorization header, no access-token cookie, no login; collection uses No Auth. HTTP 401 is the expected authentication convention; docs show that a token is needed.\n\nExpected: HTTP 401; JSON error with a non-empty message; no user identity or access token in the body.\n\nSource: https://dummyjson.com/docs/auth"
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "type": "text/javascript",
+            "exec": [
+              "// API-10: Reject access to current user without a token. Read-only live public demo API request.",
+              "pm.test(\"HTTP status is 401\", function () { pm.response.to.have.status(401); });",
+              "pm.test(\"Response declares JSON\", function () { pm.expect(pm.response.headers.get(\"Content-Type\")).to.match(/application\\/json/i); });",
+              "const body = pm.response.json();",
+              "pm.test(\"Authentication error is readable\", function () { pm.expect(body.message).to.be.a(\"string\").and.not.empty; });",
+              "pm.test(\"No authenticated user or token is disclosed\", function () { [\"id\",\"username\",\"email\",\"accessToken\",\"refreshToken\"].forEach(key=>pm.expect(body).not.to.have.property(key)); });"
+            ]
+          }
+        }
+      ],
+      "response": []
+    }
+  ]
+}

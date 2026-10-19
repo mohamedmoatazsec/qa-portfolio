@@ -1,0 +1,394 @@
+{
+  "target": "https://www.saucedemo.com",
+  "executed_at_utc_start": "2026-10-19T10:22:42.059Z",
+  "finished_at_utc": "2026-10-19T10:27:59.599Z",
+  "environment": "Codex in-app browser on Windows; browser interactions via accessibility and Playwright locators; exact engine version not recorded",
+  "execution": "Actual browser interactions against the live public demo; no local simulator",
+  "accounts": "Published standard_user, locked_out_user and problem_user demo accounts only",
+  "test_data": "Invented QA / Tester / 12345; no personal data",
+  "oracle": "Visible control labels, observed standard_user control behaviour, and public demo account intent; no unpublished business specification",
+  "notes": "Seven UI cases pass; three fail against normal shopper expectations on the seeded problem_user scenario. Failures are expected training behaviour, not newly discovered production defects. No real purchase or Jira submission.",
+  "cleanup": "Temporary cart items removed using standard_user; left at demo login.",
+  "observations": [
+    {
+      "id": "WEB-01",
+      "at": "2026-10-19T10:22:42.059Z",
+      "action": "Log in with published standard_user credentials",
+      "expected": "Inventory is displayed",
+      "actualUrl": "https://www.saucedemo.com/inventory.html",
+      "result": "PASS",
+      "images": [
+        {
+          "alt": "Sauce Labs Backpack",
+          "src": "/assets/sauce-backpack-1200x1500-CjRW-Djj.jpg"
+        },
+        {
+          "alt": "Sauce Labs Bike Light",
+          "src": "/assets/bike-light-1200x1500-DxcZRFOA.jpg"
+        },
+        {
+          "alt": "Sauce Labs Bolt T-Shirt",
+          "src": "/assets/bolt-shirt-1200x1500-mR0ldpVS.jpg"
+        },
+        {
+          "alt": "Sauce Labs Fleece Jacket",
+          "src": "/assets/sauce-pullover-1200x1500-BfbI-PSd.jpg"
+        },
+        {
+          "alt": "Sauce Labs Onesie",
+          "src": "/assets/red-onesie-1200x1500-BrSuq0ic.jpg"
+        },
+        {
+          "alt": "Test.allTheThings() T-Shirt (Red)",
+          "src": "/assets/red-tatt-1200x1500-E-qp6aYf.jpg"
+        }
+      ],
+      "evidence": "01-standard-inventory.png"
+    },
+    {
+      "id": "WEB-02",
+      "at": "2026-10-19T10:24:15.325Z",
+      "action": "Log in with published locked_out_user credentials",
+      "expected": "Login is rejected with locked-out message; stay on login page",
+      "actual": "Epic sadface: Sorry, this user has been locked out.",
+      "actualUrl": "https://www.saucedemo.com/",
+      "result": "PASS",
+      "evidence": "08-locked-out-login.png"
+    },
+    {
+      "id": "WEB-03",
+      "at": "2026-10-19T10:22:55.222Z",
+      "action": "Select Price (low to high)",
+      "expected": "All six products appear in ascending numerical price order",
+      "actual": "Sauce Labs Onesie\nRib snap infant onesie for the junior automation engineer in development. Reinforced 3-snap bottom closure, two-needle hemmed sleeved and bottom won't unravel.\n$7.99\nAdd to cart\nSauce Labs Bike Light\nA red light isn't the desired state in testing but it sure helps when riding your bike at night. Water-resistant with 3 lighting modes, 1 AAA battery included.\n$9.99\nAdd to cart\nSauce Labs Bolt T-Shirt\nGet your testing superhero on with the Sauce Labs bolt T-shirt. From American Apparel, 100% ringspun combed cotton, heather gray with red bolt.\n$15.99\nAdd to cart\nTest.allTheThings() T-Shirt (Red)\nThis classic Sauce Labs t-shirt is perfect to wear when cozying up to your keyboard to automate a few tests. Super-soft and comfy ringspun combed cotton.\n$15.99\nAdd to cart\nSauce Labs Backpack\ncarry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.\n$29.99\nAdd to cart\nSauce Labs Fleece Jacket\nIt's not every day that you come across a midweight quarter-zip fleece jacket capable of handling everything from a relaxing day outdoors to a busy day at the office.\n$49.99\nAdd to cart",
+      "order": [
+        "Sauce Labs Onesie",
+        "Sauce Labs Bike Light",
+        "Sauce Labs Bolt T-Shirt",
+        "Test.allTheThings() T-Shirt (Red)",
+        "Sauce Labs Backpack",
+        "Sauce Labs Fleece Jacket"
+      ],
+      "result": "PASS",
+      "evidence": "02-standard-price-sort.png"
+    },
+    {
+      "id": "WEB-04",
+      "at": "2026-10-19T10:23:18.641Z",
+      "action": "Add Sauce Labs Backpack then open Cart",
+      "expected": "Cart contains one Sauce Labs Backpack at $29.99, quantity 1",
+      "actual": "QTYDescription\n1\nSauce Labs Backpack\ncarry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.\n$29.99\nRemove\nContinue Shopping\nCheckout",
+      "result": "PASS",
+      "evidence": "03-standard-cart-added.png"
+    },
+    {
+      "id": "WEB-05",
+      "at": "2026-10-19T10:23:24.971Z",
+      "action": "Remove the only cart item",
+      "expected": "Backpack disappears and cart is empty",
+      "actual": "QTYDescription\nContinue Shopping\nCheckout",
+      "result": "PASS",
+      "evidence": "04-standard-cart-removed.png"
+    },
+    {
+      "id": "WEB-06",
+      "at": "2026-10-19T10:23:49.463Z",
+      "action": "Continue checkout with all information fields empty",
+      "expected": "First Name is required and checkout stays on information page",
+      "actual": "Error: First Name is required\nCancel",
+      "actualUrl": "https://www.saucedemo.com/checkout-step-one.html",
+      "result": "PASS",
+      "evidence": "05-standard-required-validation.png"
+    },
+    {
+      "id": "WEB-07",
+      "at": "2026-10-19T10:23:56.846Z",
+      "action": "Fill First Name QA, Last Name Tester, Zip 12345 and Continue",
+      "expected": "Values remain in correct fields and checkout advances to overview",
+      "fields": [
+        {
+          "id": "first-name",
+          "value": "QA"
+        },
+        {
+          "id": "last-name",
+          "value": "Tester"
+        },
+        {
+          "id": "postal-code",
+          "value": "12345"
+        }
+      ],
+      "actual": "QTYDescription\n1\nSauce Labs Backpack\ncarry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.\n$29.99\nPayment Information:\nSauceCard #31337\nShipping Information:\nFree Pony Express Delivery!\nPrice Total\nItem total: $29.99\nTax: $2.40\nTotal: $32.39\nCancel\nFinish",
+      "actualUrl": "https://www.saucedemo.com/checkout-step-two.html",
+      "result": "PASS",
+      "evidence": [
+        "06-standard-checkout-fields.png",
+        "07-standard-checkout-overview.png"
+      ]
+    },
+    {
+      "id": "WEB-08",
+      "at": "2026-10-19T10:24:50.273Z",
+      "action": "Compare all six product images for problem_user with standard_user baseline",
+      "expected": "Each catalog item uses its corresponding product photo",
+      "actual": "All six completed images show the same dog photograph; all use /assets/sl-404-Cq1a9k9X.jpg",
+      "images": [
+        {
+          "alt": "Sauce Labs Backpack",
+          "complete": true,
+          "src": "/assets/sl-404-Cq1a9k9X.jpg",
+          "width": 600
+        },
+        {
+          "alt": "Sauce Labs Bike Light",
+          "complete": true,
+          "src": "/assets/sl-404-Cq1a9k9X.jpg",
+          "width": 600
+        },
+        {
+          "alt": "Sauce Labs Bolt T-Shirt",
+          "complete": true,
+          "src": "/assets/sl-404-Cq1a9k9X.jpg",
+          "width": 600
+        },
+        {
+          "alt": "Sauce Labs Fleece Jacket",
+          "complete": true,
+          "src": "/assets/sl-404-Cq1a9k9X.jpg",
+          "width": 600
+        },
+        {
+          "alt": "Sauce Labs Onesie",
+          "complete": true,
+          "src": "/assets/sl-404-Cq1a9k9X.jpg",
+          "width": 600
+        },
+        {
+          "alt": "Test.allTheThings() T-Shirt (Red)",
+          "complete": true,
+          "src": "/assets/sl-404-Cq1a9k9X.jpg",
+          "width": 600
+        }
+      ],
+      "baseline": [
+        {
+          "alt": "Sauce Labs Backpack",
+          "src": "/assets/sauce-backpack-1200x1500-CjRW-Djj.jpg"
+        },
+        {
+          "alt": "Sauce Labs Bike Light",
+          "src": "/assets/bike-light-1200x1500-DxcZRFOA.jpg"
+        },
+        {
+          "alt": "Sauce Labs Bolt T-Shirt",
+          "src": "/assets/bolt-shirt-1200x1500-mR0ldpVS.jpg"
+        },
+        {
+          "alt": "Sauce Labs Fleece Jacket",
+          "src": "/assets/sauce-pullover-1200x1500-BfbI-PSd.jpg"
+        },
+        {
+          "alt": "Sauce Labs Onesie",
+          "src": "/assets/red-onesie-1200x1500-BrSuq0ic.jpg"
+        },
+        {
+          "alt": "Test.allTheThings() T-Shirt (Red)",
+          "src": "/assets/red-tatt-1200x1500-E-qp6aYf.jpg"
+        }
+      ],
+      "result": "FAIL",
+      "bug": "LIVE-BUG-01",
+      "evidence": "09-problem-product-images.png",
+      "reproduction": {
+        "afterReload": [
+          {
+            "alt": "Sauce Labs Backpack",
+            "complete": true,
+            "src": "/assets/sl-404-Cq1a9k9X.jpg",
+            "width": 600
+          },
+          {
+            "alt": "Sauce Labs Bike Light",
+            "complete": true,
+            "src": "/assets/sl-404-Cq1a9k9X.jpg",
+            "width": 600
+          },
+          {
+            "alt": "Sauce Labs Bolt T-Shirt",
+            "complete": true,
+            "src": "/assets/sl-404-Cq1a9k9X.jpg",
+            "width": 600
+          },
+          {
+            "alt": "Sauce Labs Fleece Jacket",
+            "complete": true,
+            "src": "/assets/sl-404-Cq1a9k9X.jpg",
+            "width": 600
+          },
+          {
+            "alt": "Sauce Labs Onesie",
+            "complete": true,
+            "src": "/assets/sl-404-Cq1a9k9X.jpg",
+            "width": 600
+          },
+          {
+            "alt": "Test.allTheThings() T-Shirt (Red)",
+            "complete": true,
+            "src": "/assets/sl-404-Cq1a9k9X.jpg",
+            "width": 600
+          }
+        ],
+        "at": "2026-10-19T10:25:09.882Z"
+      },
+      "standardControl": {
+        "images": [
+          {
+            "alt": "Sauce Labs Backpack",
+            "complete": true,
+            "src": "/assets/sauce-backpack-1200x1500-CjRW-Djj.jpg",
+            "width": 640
+          },
+          {
+            "alt": "Sauce Labs Bike Light",
+            "complete": true,
+            "src": "/assets/bike-light-1200x1500-DxcZRFOA.jpg",
+            "width": 320
+          },
+          {
+            "alt": "Sauce Labs Bolt T-Shirt",
+            "complete": true,
+            "src": "/assets/bolt-shirt-1200x1500-mR0ldpVS.jpg",
+            "width": 640
+          },
+          {
+            "alt": "Sauce Labs Fleece Jacket",
+            "complete": true,
+            "src": "/assets/sauce-pullover-1200x1500-BfbI-PSd.jpg",
+            "width": 640
+          },
+          {
+            "alt": "Sauce Labs Onesie",
+            "complete": true,
+            "src": "/assets/red-onesie-1200x1500-BrSuq0ic.jpg",
+            "width": 640
+          },
+          {
+            "alt": "Test.allTheThings() T-Shirt (Red)",
+            "complete": true,
+            "src": "/assets/red-tatt-1200x1500-E-qp6aYf.jpg",
+            "width": 640
+          }
+        ],
+        "evidence": "16-standard-image-control.png"
+      }
+    },
+    {
+      "id": "WEB-09",
+      "at": "2026-10-19T10:25:09.859Z",
+      "action": "Click Add to cart for Sauce Labs Bolt T-Shirt, reload and repeat",
+      "expected": "Bolt T-Shirt is added; button becomes Remove and count increases from 1 to 2",
+      "actual": "Both attempts leave Add to cart visible, no Remove button, and cart count at 1",
+      "attempts": [
+        {
+          "at": "2026-10-19T10:24:58.225Z",
+          "addButtonVisible": true,
+          "removeButtonVisible": false,
+          "cart": [
+            "Cart, 1 items"
+          ]
+        },
+        {
+          "at": "2026-10-19T10:25:09.701Z",
+          "addButtonVisible": true,
+          "removeButtonVisible": false,
+          "cart": [
+            "Cart, 1 items"
+          ]
+        }
+      ],
+      "result": "FAIL",
+      "bug": "LIVE-BUG-02",
+      "evidence": [
+        "10-problem-add-to-cart-first.png",
+        "11-problem-add-to-cart-reproduced.png",
+        "12-problem-cart-item-absent.png",
+        "17-standard-bolt-add-control.png"
+      ],
+      "cartConfirmation": "QTYDescription\n1\nSauce Labs Backpack\ncarry.allTheThings() with the sleek, streamlined Sly Pack that melds uncompromising style with unequaled laptop and tablet protection.\n$29.99\nRemove\nContinue Shopping\nCheckout",
+      "standardControl": {
+        "at": "2026-10-19T10:26:47.448Z",
+        "removeButtonVisible": true,
+        "cart": [
+          "Cart, 2 items"
+        ]
+      }
+    },
+    {
+      "id": "WEB-10",
+      "at": "2026-10-19T10:25:44.323Z",
+      "action": "Enter QA / Tester / 12345 in checkout and Continue; reload and repeat with sequential keystrokes",
+      "expected": "First Name QA, Last Name Tester, postal code 12345; advance to overview",
+      "actual": "Last Name stays empty; entry changes First Name instead, then Error: Last Name is required blocks progression",
+      "attempts": [
+        {
+          "inputMethod": "fill",
+          "fields": [
+            {
+              "id": "first-name",
+              "value": "Tester"
+            },
+            {
+              "id": "last-name",
+              "value": ""
+            },
+            {
+              "id": "postal-code",
+              "value": "12345"
+            }
+          ],
+          "error": "Error: Last Name is required\nCancel"
+        },
+        {
+          "inputMethod": "sequential keystrokes",
+          "fields": [
+            {
+              "id": "first-name",
+              "value": "r"
+            },
+            {
+              "id": "last-name",
+              "value": ""
+            },
+            {
+              "id": "postal-code",
+              "value": "12345"
+            }
+          ],
+          "error": "Error: Last Name is required\nCancel"
+        }
+      ],
+      "result": "FAIL",
+      "bug": "LIVE-BUG-03",
+      "evidence": [
+        "13-problem-checkout-fields.png",
+        "14-problem-checkout-blocked.png",
+        "15-problem-checkout-reproduced.png"
+      ],
+      "baseline": [
+        {
+          "id": "first-name",
+          "value": "QA"
+        },
+        {
+          "id": "last-name",
+          "value": "Tester"
+        },
+        {
+          "id": "postal-code",
+          "value": "12345"
+        }
+      ]
+    }
+  ]
+}

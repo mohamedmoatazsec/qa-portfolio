@@ -1,0 +1,175 @@
+- banner:
+  - button "Navigation menu":
+  - button "Team Workspace Mohamed Moataz's Workspace":
+    - img "Team Workspace":
+    - generic: Mohamed Moataz's Workspace
+  - generic "Open search":
+    - generic: Search
+    - generic: (
+    - text: Ctrl+K
+    - generic: )
+  - toolbar "Toolbar":
+    - button "Invite":
+      - generic: Invite
+    - button "Upgrade":
+      - generic: Upgrade
+    - button "Notifications":
+    - button "Settings":
+    - button "Manage accounts":
+      - button "Manage accounts":
+        - generic "Mohamed Moataz profile picture":
+        - img "Mohamed Moataz's Team team logo"
+- tablist:
+  - tab "Items in Cloud" [selected]:
+  - tab "Services":
+  - tab "History":
+- button "Filter panels":
+- textbox "Input field":
+  - /placeholder: ""
+- button "Create new":
+- button:
+- button:
+- button "Collections" [expanded]:
+  - generic: Collections
+- region "Collections":
+  - tree "Collections":
+    - treeitem "Expand Live QA Portfolio | DummyJSON | 10 read-only cases" [level=1]:
+      - button "Expand":
+      - generic: Live QA Portfolio | DummyJSON | 10 read-only cases
+    - treeitem "Expand My Collection" [level=1]:
+      - button "Expand":
+      - generic: My Collection
+- button "Environments":
+  - generic: Environments
+- button "Documents":
+  - generic: Documents
+- button "Specs":
+  - generic: Specs
+- button "Mocks":
+  - generic: Mocks
+- button "Datasets":
+  - generic: Datasets
+- button "Toolsets":
+  - generic: Toolsets
+- button "Flows":
+  - generic: Flows
+- separator
+- img "Request":
+- generic: Live QA Portfolio | DummyJSON | 10 read-only cases
+- button "Create new request":
+- button "Search tabs":
+  - img "Search tabs":
+- combobox "Environment No Environment":
+  - generic: Environment
+  - generic: No Environment
+  - img "Select Environment":
+- button:
+- navigation "Breadcrumb navigation":
+  - list:
+    - generic: Live QA Portfolio | DummyJS... - Run results
+- toolbar "Run actions":
+  - button "Rerun":
+    - generic: Rerun
+  - button "New Run":
+    - generic: New Run
+  - button "Schedule":
+    - generic: Schedule
+  - button "Postman CLI":
+  - button "Configure CI/CD":
+  - button "Share":
+    - generic: Share
+  - button "Copy Link":
+  - button "View more actions":
+- generic: Ran today at 02:10:57 PM
+- button "View all runs":
+  - generic: View all runs
+- generic: Source
+- heading "Runner" [level=4]
+- generic: Environment
+- heading "none" [level=4]
+- generic: Iterations
+- heading "1" [level=4]
+- generic: Duration
+- heading "4s 180ms" [level=4]
+- generic: All tests
+- heading "55" [level=4]
+- generic: Errors
+- heading "0" [level=4]
+- generic: Avg. Resp. Time
+- heading "368 ms" [level=4]
+- generic: RUN SUMMARY
+- tablist:
+  - tab "List"
+  - tab "Grid" [selected]
+- generic: "1"
+- generic: GET
+- generic: API-01 | Retrieve one existing product
+- generic: "6"
+- generic: "|"
+- generic: "0"
+- generic: GET
+- generic: API-02 | Limit the first page and select fields
+- generic: "6"
+- generic: "|"
+- generic: "0"
+- generic: GET
+- generic: API-03 | Skip the first three product fixtures
+- generic: "6"
+- generic: "|"
+- generic: "0"
+- generic: GET
+- generic: API-04 | Search for a known product keyword
+- generic: "6"
+- generic: "|"
+- generic: "0"
+- generic: GET
+- generic: API-05 | Search with a keyword that has no matches
+- generic: "5"
+- generic: "|"
+- generic: "0"
+- generic: GET
+- generic: API-06 | Filter products by category
+- generic: "6"
+- generic: "|"
+- generic: "0"
+- generic: GET
+- generic: API-07 | Sort products by ascending price
+- generic: "6"
+- generic: "|"
+- generic: "0"
+- generic: GET
+- generic: API-08 | Retrieve category names for filter controls
+- generic: "6"
+- generic: "|"
+- generic: "0"
+- generic: GET
+- generic: API-09 | Reject a non-existent product identifier
+- generic: "4"
+- generic: "|"
+- generic: "0"
+- generic: GET
+- generic: API-10 | Reject access to current user without a token
+- generic: "4"
+- generic: "|"
+- generic: "0"
+- separator
+- separator
+- button:
+- button "Open Folder" [disabled]:
+  - generic: Open Folder
+- button "Terminal":
+  - generic: Terminal
+- button "Console":
+  - generic: Console
+- button "No anomalies detected":
+  - generic: No anomalies detected
+- button "Cloud Agent":
+  - generic: Cloud Agent
+- button "Globals":
+  - generic: Globals
+- button "Vault":
+  - generic: Vault
+- button "Tools":
+  - generic: Tools
+- button:
+- button:

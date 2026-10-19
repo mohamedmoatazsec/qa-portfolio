@@ -1,0 +1,20 @@
+{
+  "captured_at_utc": "2026-10-19T11:11:35.235Z",
+  "execution_method": "Postman web application - functional collection runner",
+  "workspace": "Mohamed Moataz’s Workspace",
+  "collection": "Live QA Portfolio | DummyJSON | 10 read-only cases",
+  "target": "https://dummyjson.com",
+  "iterations": 1,
+  "requests": 10,
+  "assertions_passed": 55,
+  "assertions_failed": 0,
+  "errors": 0,
+  "duration_display": "4s 180ms",
+  "average_response_time_display": "368 ms",
+  "postman_run_time_display": "02:10:57 PM, 19 October 2026 (Africa/Cairo)",
+  "stored_cookies_used": false,
+  "cookies_saved_after_run": false,
+  "results_url": "https://mohamedmoatazsec-668621.postman.co/workspace/789e3f64-8120-46af-8727-96570c20619c/run/59058615-00156ab0-aae2-493c-a412-6408fce1f370",
+  "evidence": "Postman_Run_Results.png",
+  "note": "Counts and timings transcribed from visible Postman run results; browser screenshot and visible DOM snapshot included. This is a fresh GUI run, separate from the earlier Newman execution."
+}

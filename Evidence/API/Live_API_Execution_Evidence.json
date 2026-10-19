@@ -1,0 +1,2291 @@
+{
+  "project": "Live public demo API QA practice",
+  "target": "https://dummyjson.com",
+  "environment": "Actual HTTPS requests from this computer to the publicly hosted DummyJSON demo API; no local server or substituted fixture responses.",
+  "scope": "Read-only functional and negative testing. No production or company experience is claimed. Not load or security testing.",
+  "collection": "Live_DummyJSON.postman_collection.json",
+  "collection_sha256": "0b497fb78d378f4f8fc0ecf3daf709cd61ad22998d93aecab87c44666fc51571",
+  "started_at_utc": "2026-10-19T10:24:27.800Z",
+  "finished_at_utc": "2026-10-19T10:24:33.387Z",
+  "local_display_timezone": "Africa/Cairo",
+  "runner": "Newman 6.2.3",
+  "node_version": "v23.11.0",
+  "transport": {
+    "tls_certificate_verification": true,
+    "follow_redirects": false,
+    "request_timeout_ms": 20000
+  },
+  "schema_validation": "Passed Postman Collection v2.1 schema using ajv-draft-04.",
+  "source_documents": [
+    {
+      "url": "https://dummyjson.com/docs/products",
+      "accessed_date": "2026-10-19"
+    },
+    {
+      "url": "https://dummyjson.com/docs/auth",
+      "accessed_date": "2026-10-19"
+    }
+  ],
+  "stats": {
+    "iterations": {
+      "total": 1,
+      "pending": 0,
+      "failed": 0
+    },
+    "items": {
+      "total": 10,
+      "pending": 0,
+      "failed": 0
+    },
+    "scripts": {
+      "total": 10,
+      "pending": 0,
+      "failed": 0
+    },
+    "prerequests": {
+      "total": 10,
+      "pending": 0,
+      "failed": 0
+    },
+    "requests": {
+      "total": 10,
+      "pending": 0,
+      "failed": 0
+    },
+    "tests": {
+      "total": 10,
+      "pending": 0,
+      "failed": 0
+    },
+    "assertions": {
+      "total": 55,
+      "pending": 0,
+      "failed": 0
+    },
+    "testScripts": {
+      "total": 10,
+      "pending": 0,
+      "failed": 0
+    },
+    "prerequestScripts": {
+      "total": 0,
+      "pending": 0,
+      "failed": 0
+    }
+  },
+  "failures": [],
+  "cases": [
+    {
+      "case_id": "API-01",
+      "title": "Retrieve one existing product",
+      "type": "Positive / functional",
+      "sent_at_utc": "2026-10-19T10:24:28.255Z",
+      "received_at_utc": "2026-10-19T10:24:28.493Z",
+      "request": {
+        "method": "GET",
+        "url": "https://dummyjson.com/products/1",
+        "headers": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "User-Agent",
+            "value": "PostmanRuntime/7.39.1",
+            "system": true
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache",
+            "system": true
+          },
+          {
+            "key": "Postman-Token",
+            "value": "84c2aafe-2a4d-4467-85da-9f8f7a082332",
+            "system": true
+          },
+          {
+            "key": "Host",
+            "value": "dummyjson.com",
+            "system": true
+          },
+          {
+            "key": "Accept-Encoding",
+            "value": "gzip, deflate, br",
+            "system": true
+          },
+          {
+            "key": "Connection",
+            "value": "keep-alive",
+            "system": true
+          }
+        ]
+      },
+      "expected": "HTTP 200; JSON object with id 1, a non-empty title, a non-negative numeric price, and a category.",
+      "http_status": 200,
+      "response_time_ms": 237,
+      "response_headers": [
+        {
+          "key": "Date",
+          "value": "Mon, 19 Oct 2026 10:24:28 GMT"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Transfer-Encoding",
+          "value": "chunked"
+        },
+        {
+          "key": "Connection",
+          "value": "keep-alive"
+        },
+        {
+          "key": "access-control-allow-credentials",
+          "value": "true"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "br"
+        },
+        {
+          "key": "etag",
+          "value": "W/\"5e6-LuZgXJ6APIKHswyRKC9GQ6dxUNE\""
+        },
+        {
+          "key": "strict-transport-security",
+          "value": "max-age=15552000; includeSubDomains"
+        },
+        {
+          "key": "vary",
+          "value": "Origin, Accept-Encoding"
+        },
+        {
+          "key": "x-content-type-options",
+          "value": "nosniff"
+        },
+        {
+          "key": "x-dns-prefetch-control",
+          "value": "off"
+        },
+        {
+          "key": "x-download-options",
+          "value": "noopen"
+        },
+        {
+          "key": "x-frame-options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "x-ratelimit-limit",
+          "value": "100"
+        },
+        {
+          "key": "x-ratelimit-remaining",
+          "value": "99"
+        },
+        {
+          "key": "x-ratelimit-reset",
+          "value": "1792074538"
+        },
+        {
+          "key": "x-xss-protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "Age",
+          "value": "330934"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "no-store"
+        },
+        {
+          "key": "cf-cache-status",
+          "value": "HIT"
+        },
+        {
+          "key": "Nel",
+          "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+        },
+        {
+          "key": "Report-To",
+          "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=wSKFmOLxIgMvy9ZcSOKjO8s58cAclgEsWqOID9ovrx2BEO6F%2FwF6qe1C5A2CDXUj0Lz0XfSWIdR8lSWygALe%2BEK%2BzWTX31xyNoQt9NHSwMkAESyFvxzPgC6wzFC1RdMC\"}]}"
+        },
+        {
+          "key": "Server",
+          "value": "cloudflare"
+        },
+        {
+          "key": "CF-RAY",
+          "value": "a4cf12c34a434bf3-MXP"
+        }
+      ],
+      "response_body": {
+        "id": 1,
+        "title": "Essence Mascara Lash Princess",
+        "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+        "category": "beauty",
+        "price": 9.99,
+        "discountPercentage": 10.48,
+        "rating": 2.56,
+        "stock": 99,
+        "tags": [
+          "beauty",
+          "mascara"
+        ],
+        "brand": "Essence",
+        "sku": "BEA-ESS-ESS-001",
+        "weight": 4,
+        "dimensions": {
+          "width": 15.14,
+          "height": 13.08,
+          "depth": 22.99
+        },
+        "warrantyInformation": "1 week warranty",
+        "shippingInformation": "Ships in 3-5 business days",
+        "availabilityStatus": "In Stock",
+        "reviews": [
+          {
+            "rating": 3,
+            "comment": "Would not recommend!",
+            "date": "2025-04-30T09:41:02.053Z",
+            "reviewerName": "Eleanor Collins",
+            "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+          },
+          {
+            "rating": 4,
+            "comment": "Very satisfied!",
+            "date": "2025-04-30T09:41:02.053Z",
+            "reviewerName": "Lucas Gordon",
+            "reviewerEmail": "lucas.gordon@x.dummyjson.com"
+          },
+          {
+            "rating": 5,
+            "comment": "Highly impressed!",
+            "date": "2025-04-30T09:41:02.053Z",
+            "reviewerName": "Eleanor Collins",
+            "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+          }
+        ],
+        "returnPolicy": "No return policy",
+        "minimumOrderQuantity": 48,
+        "meta": {
+          "createdAt": "2025-10-09T14:47:01.588Z",
+          "updatedAt": "2026-05-23T11:27:41.868Z",
+          "barcode": "5784719087687",
+          "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+        },
+        "images": [
+          "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+        ],
+        "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp"
+      },
+      "assertions": [
+        {
+          "name": "HTTP status is 200",
+          "passed": true
+        },
+        {
+          "name": "Response declares JSON",
+          "passed": true
+        },
+        {
+          "name": "Requested product ID is returned",
+          "passed": true
+        },
+        {
+          "name": "Title is a non-empty string",
+          "passed": true
+        },
+        {
+          "name": "Price is numeric and non-negative",
+          "passed": true
+        },
+        {
+          "name": "Category is a non-empty string",
+          "passed": true
+        }
+      ],
+      "result": "PASS",
+      "actual_summary": "HTTP 200. Product ID 1; title \"Essence Mascara Lash Princess\"; price 9.99; category beauty."
+    },
+    {
+      "case_id": "API-02",
+      "title": "Limit the first page and select fields",
+      "type": "Positive / pagination and projection",
+      "sent_at_utc": "2026-10-19T10:24:28.803Z",
+      "received_at_utc": "2026-10-19T10:24:28.913Z",
+      "request": {
+        "method": "GET",
+        "url": "https://dummyjson.com/products?limit=3&skip=0&select=title,price",
+        "headers": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "User-Agent",
+            "value": "PostmanRuntime/7.39.1",
+            "system": true
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache",
+            "system": true
+          },
+          {
+            "key": "Postman-Token",
+            "value": "05eb2976-baeb-4dc4-8216-6dd2e0f0e718",
+            "system": true
+          },
+          {
+            "key": "Host",
+            "value": "dummyjson.com",
+            "system": true
+          },
+          {
+            "key": "Accept-Encoding",
+            "value": "gzip, deflate, br",
+            "system": true
+          },
+          {
+            "key": "Connection",
+            "value": "keep-alive",
+            "system": true
+          }
+        ]
+      },
+      "expected": "HTTP 200; three products, skip 0, limit 3; each product has only id, title and price.",
+      "http_status": 200,
+      "response_time_ms": 108,
+      "response_headers": [
+        {
+          "key": "Date",
+          "value": "Mon, 19 Oct 2026 10:24:29 GMT"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Transfer-Encoding",
+          "value": "chunked"
+        },
+        {
+          "key": "Connection",
+          "value": "keep-alive"
+        },
+        {
+          "key": "access-control-allow-credentials",
+          "value": "true"
+        },
+        {
+          "key": "etag",
+          "value": "W/\"db-8tYuCeZIWuEorJqSDab1NXFswig\""
+        },
+        {
+          "key": "strict-transport-security",
+          "value": "max-age=15552000; includeSubDomains"
+        },
+        {
+          "key": "vary",
+          "value": "Origin, Accept-Encoding"
+        },
+        {
+          "key": "x-content-type-options",
+          "value": "nosniff"
+        },
+        {
+          "key": "x-dns-prefetch-control",
+          "value": "off"
+        },
+        {
+          "key": "x-download-options",
+          "value": "noopen"
+        },
+        {
+          "key": "x-frame-options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "x-ratelimit-limit",
+          "value": "100"
+        },
+        {
+          "key": "x-ratelimit-remaining",
+          "value": "98"
+        },
+        {
+          "key": "x-ratelimit-reset",
+          "value": "1792405471"
+        },
+        {
+          "key": "x-xss-protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "cf-cache-status",
+          "value": "DYNAMIC"
+        },
+        {
+          "key": "Nel",
+          "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+        },
+        {
+          "key": "Report-To",
+          "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=5QJqJMxx580%2F%2BwiGYHEq%2FC%2FSmzclQwyX%2FT6tXnMO6NM8Voww7lw%2F5NlpdGRDnblF3YK8vLndaVCwe%2BQAmk3LD1kL4hbvhLXvz9ExvYay4G6clpj6Y3NrOh5Uu5Kd%2BZHe\"}]}"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "br"
+        },
+        {
+          "key": "Server",
+          "value": "cloudflare"
+        },
+        {
+          "key": "CF-RAY",
+          "value": "a4cf12c5bd514bf3-MXP"
+        }
+      ],
+      "response_body": {
+        "products": [
+          {
+            "id": 1,
+            "title": "Essence Mascara Lash Princess",
+            "price": 9.99
+          },
+          {
+            "id": 2,
+            "title": "Eyeshadow Palette with Mirror",
+            "price": 19.99
+          },
+          {
+            "id": 3,
+            "title": "Powder Canister",
+            "price": 14.99
+          }
+        ],
+        "total": 194,
+        "skip": 0,
+        "limit": 3
+      },
+      "assertions": [
+        {
+          "name": "HTTP status is 200",
+          "passed": true
+        },
+        {
+          "name": "Response declares JSON",
+          "passed": true
+        },
+        {
+          "name": "Page contains exactly three products",
+          "passed": true
+        },
+        {
+          "name": "Pagination metadata matches request",
+          "passed": true
+        },
+        {
+          "name": "Selected fields and identity only are returned",
+          "passed": true
+        },
+        {
+          "name": "Projected field types are correct",
+          "passed": true
+        }
+      ],
+      "result": "PASS",
+      "actual_summary": "HTTP 200. 3 products; skip 0; limit 3; IDs 1, 2, 3; returned keys id, title, price."
+    },
+    {
+      "case_id": "API-03",
+      "title": "Skip the first three product fixtures",
+      "type": "Positive / pagination",
+      "sent_at_utc": "2026-10-19T10:24:29.190Z",
+      "received_at_utc": "2026-10-19T10:24:29.293Z",
+      "request": {
+        "method": "GET",
+        "url": "https://dummyjson.com/products?limit=3&skip=3&select=title,price",
+        "headers": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "User-Agent",
+            "value": "PostmanRuntime/7.39.1",
+            "system": true
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache",
+            "system": true
+          },
+          {
+            "key": "Postman-Token",
+            "value": "a71bb317-f5f5-4be9-8b4b-a7eb4fcc0d93",
+            "system": true
+          },
+          {
+            "key": "Host",
+            "value": "dummyjson.com",
+            "system": true
+          },
+          {
+            "key": "Accept-Encoding",
+            "value": "gzip, deflate, br",
+            "system": true
+          },
+          {
+            "key": "Connection",
+            "value": "keep-alive",
+            "system": true
+          }
+        ]
+      },
+      "expected": "HTTP 200; three products, skip 3, limit 3; IDs 1, 2, 3 are excluded; no duplicate IDs.",
+      "http_status": 200,
+      "response_time_ms": 102,
+      "response_headers": [
+        {
+          "key": "Date",
+          "value": "Mon, 19 Oct 2026 10:24:29 GMT"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Transfer-Encoding",
+          "value": "chunked"
+        },
+        {
+          "key": "Connection",
+          "value": "keep-alive"
+        },
+        {
+          "key": "access-control-allow-credentials",
+          "value": "true"
+        },
+        {
+          "key": "etag",
+          "value": "W/\"c0-VqqnhhF3PBGbLRWLhHT1q6+JlA8\""
+        },
+        {
+          "key": "strict-transport-security",
+          "value": "max-age=15552000; includeSubDomains"
+        },
+        {
+          "key": "vary",
+          "value": "Origin, Accept-Encoding"
+        },
+        {
+          "key": "x-content-type-options",
+          "value": "nosniff"
+        },
+        {
+          "key": "x-dns-prefetch-control",
+          "value": "off"
+        },
+        {
+          "key": "x-download-options",
+          "value": "noopen"
+        },
+        {
+          "key": "x-frame-options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "x-ratelimit-limit",
+          "value": "100"
+        },
+        {
+          "key": "x-ratelimit-remaining",
+          "value": "97"
+        },
+        {
+          "key": "x-ratelimit-reset",
+          "value": "1792405471"
+        },
+        {
+          "key": "x-xss-protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "cf-cache-status",
+          "value": "DYNAMIC"
+        },
+        {
+          "key": "Nel",
+          "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+        },
+        {
+          "key": "Report-To",
+          "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=B4ZDWXRRJTv%2FYdXEBusXoM5AzI7da%2Fdatgg1H2uPh7lFY%2FD3HSB%2BFeY89C3lhxn0Dz6tkYyt9AwobeJInCbQhbnonXjpyDv8J9r6hHAaS98pfaItiWCnWGQxFCHu5PLt\"}]}"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "br"
+        },
+        {
+          "key": "Server",
+          "value": "cloudflare"
+        },
+        {
+          "key": "CF-RAY",
+          "value": "a4cf12c8282f4bf3-MXP"
+        }
+      ],
+      "response_body": {
+        "products": [
+          {
+            "id": 4,
+            "title": "Red Lipstick",
+            "price": 12.99
+          },
+          {
+            "id": 5,
+            "title": "Red Nail Polish",
+            "price": 8.99
+          },
+          {
+            "id": 6,
+            "title": "Calvin Klein CK One",
+            "price": 49.99
+          }
+        ],
+        "total": 194,
+        "skip": 3,
+        "limit": 3
+      },
+      "assertions": [
+        {
+          "name": "HTTP status is 200",
+          "passed": true
+        },
+        {
+          "name": "Response declares JSON",
+          "passed": true
+        },
+        {
+          "name": "Second page contains three products",
+          "passed": true
+        },
+        {
+          "name": "Offset metadata is correct",
+          "passed": true
+        },
+        {
+          "name": "First page IDs were skipped",
+          "passed": true
+        },
+        {
+          "name": "Page contains unique product IDs",
+          "passed": true
+        }
+      ],
+      "result": "PASS",
+      "actual_summary": "HTTP 200. 3 products; skip 3; limit 3; returned IDs 4, 5, 6."
+    },
+    {
+      "case_id": "API-04",
+      "title": "Search for a known product keyword",
+      "type": "Positive / search",
+      "sent_at_utc": "2026-10-19T10:24:29.602Z",
+      "received_at_utc": "2026-10-19T10:24:29.698Z",
+      "request": {
+        "method": "GET",
+        "url": "https://dummyjson.com/products/search?q=mascara",
+        "headers": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "User-Agent",
+            "value": "PostmanRuntime/7.39.1",
+            "system": true
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache",
+            "system": true
+          },
+          {
+            "key": "Postman-Token",
+            "value": "bb5e8311-a514-4b9d-a459-7cbe5c213b7b",
+            "system": true
+          },
+          {
+            "key": "Host",
+            "value": "dummyjson.com",
+            "system": true
+          },
+          {
+            "key": "Accept-Encoding",
+            "value": "gzip, deflate, br",
+            "system": true
+          },
+          {
+            "key": "Connection",
+            "value": "keep-alive",
+            "system": true
+          }
+        ]
+      },
+      "expected": "HTTP 200; non-empty results; returned product text matches mascara and IDs are unique.",
+      "http_status": 200,
+      "response_time_ms": 95,
+      "response_headers": [
+        {
+          "key": "Date",
+          "value": "Mon, 19 Oct 2026 10:24:29 GMT"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Transfer-Encoding",
+          "value": "chunked"
+        },
+        {
+          "key": "Connection",
+          "value": "keep-alive"
+        },
+        {
+          "key": "access-control-allow-credentials",
+          "value": "true"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "br"
+        },
+        {
+          "key": "etag",
+          "value": "W/\"612-vyNMnbWtICNBVbyM/vfMVt6penc\""
+        },
+        {
+          "key": "strict-transport-security",
+          "value": "max-age=15552000; includeSubDomains"
+        },
+        {
+          "key": "vary",
+          "value": "Origin, Accept-Encoding"
+        },
+        {
+          "key": "x-content-type-options",
+          "value": "nosniff"
+        },
+        {
+          "key": "x-dns-prefetch-control",
+          "value": "off"
+        },
+        {
+          "key": "x-download-options",
+          "value": "noopen"
+        },
+        {
+          "key": "x-frame-options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "x-ratelimit-limit",
+          "value": "100"
+        },
+        {
+          "key": "x-ratelimit-remaining",
+          "value": "96"
+        },
+        {
+          "key": "x-ratelimit-reset",
+          "value": "1792405471"
+        },
+        {
+          "key": "x-xss-protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "cf-cache-status",
+          "value": "DYNAMIC"
+        },
+        {
+          "key": "Nel",
+          "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+        },
+        {
+          "key": "Report-To",
+          "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=8rzPrGlXXVdMxd6NPCj43yvlf37co5Agm0cDkYnZX%2FrF3JylwIFT9byFtA6jrufv5hw0PXwpocuflVB10KqiiwJhUevrAAWCgjtkEC3RhABZZRZ2Yi4UAzF1PL06pp4Y\"}]}"
+        },
+        {
+          "key": "Server",
+          "value": "cloudflare"
+        },
+        {
+          "key": "CF-RAY",
+          "value": "a4cf12cabaac4bf3-MXP"
+        }
+      ],
+      "response_body": {
+        "products": [
+          {
+            "id": 1,
+            "title": "Essence Mascara Lash Princess",
+            "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+            "category": "beauty",
+            "price": 9.99,
+            "discountPercentage": 10.48,
+            "rating": 2.56,
+            "stock": 99,
+            "tags": [
+              "beauty",
+              "mascara"
+            ],
+            "brand": "Essence",
+            "sku": "BEA-ESS-ESS-001",
+            "weight": 4,
+            "dimensions": {
+              "width": 15.14,
+              "height": 13.08,
+              "depth": 22.99
+            },
+            "warrantyInformation": "1 week warranty",
+            "shippingInformation": "Ships in 3-5 business days",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 3,
+                "comment": "Would not recommend!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Eleanor Collins",
+                "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Very satisfied!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Lucas Gordon",
+                "reviewerEmail": "lucas.gordon@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Highly impressed!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Eleanor Collins",
+                "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 48,
+            "meta": {
+              "createdAt": "2025-10-09T14:47:01.588Z",
+              "updatedAt": "2026-05-23T11:27:41.868Z",
+              "barcode": "5784719087687",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp"
+          }
+        ],
+        "total": 1,
+        "skip": 0,
+        "limit": 1
+      },
+      "assertions": [
+        {
+          "name": "HTTP status is 200",
+          "passed": true
+        },
+        {
+          "name": "Response declares JSON",
+          "passed": true
+        },
+        {
+          "name": "Search returns at least one product",
+          "passed": true
+        },
+        {
+          "name": "Every result contains the search keyword",
+          "passed": true
+        },
+        {
+          "name": "Search result IDs are unique",
+          "passed": true
+        },
+        {
+          "name": "Result count agrees with returned search page",
+          "passed": true
+        }
+      ],
+      "result": "PASS",
+      "actual_summary": "HTTP 200. 1 result(s), total 1; titles: Essence Mascara Lash Princess."
+    },
+    {
+      "case_id": "API-05",
+      "title": "Search with a keyword that has no matches",
+      "type": "Negative / empty-result equivalence class",
+      "sent_at_utc": "2026-10-19T10:24:30.000Z",
+      "received_at_utc": "2026-10-19T10:24:30.097Z",
+      "request": {
+        "method": "GET",
+        "url": "https://dummyjson.com/products/search?q=qa_no_match_8e521d7a",
+        "headers": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "User-Agent",
+            "value": "PostmanRuntime/7.39.1",
+            "system": true
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache",
+            "system": true
+          },
+          {
+            "key": "Postman-Token",
+            "value": "871c88e0-f38f-46c4-bce5-3b59cc7fe275",
+            "system": true
+          },
+          {
+            "key": "Host",
+            "value": "dummyjson.com",
+            "system": true
+          },
+          {
+            "key": "Accept-Encoding",
+            "value": "gzip, deflate, br",
+            "system": true
+          },
+          {
+            "key": "Connection",
+            "value": "keep-alive",
+            "system": true
+          }
+        ]
+      },
+      "expected": "HTTP 200; products is an empty array; total is 0 and skip is 0. A valid search with no results is not a missing endpoint.",
+      "http_status": 200,
+      "response_time_ms": 97,
+      "response_headers": [
+        {
+          "key": "Date",
+          "value": "Mon, 19 Oct 2026 10:24:30 GMT"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Length",
+          "value": "44"
+        },
+        {
+          "key": "Connection",
+          "value": "keep-alive"
+        },
+        {
+          "key": "access-control-allow-credentials",
+          "value": "true"
+        },
+        {
+          "key": "etag",
+          "value": "W/\"2c-yOi/7Bbg3zAE7r3Ra2tViR+0cAQ\""
+        },
+        {
+          "key": "strict-transport-security",
+          "value": "max-age=15552000; includeSubDomains"
+        },
+        {
+          "key": "vary",
+          "value": "Origin, Accept-Encoding"
+        },
+        {
+          "key": "x-content-type-options",
+          "value": "nosniff"
+        },
+        {
+          "key": "x-dns-prefetch-control",
+          "value": "off"
+        },
+        {
+          "key": "x-download-options",
+          "value": "noopen"
+        },
+        {
+          "key": "x-frame-options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "x-ratelimit-limit",
+          "value": "100"
+        },
+        {
+          "key": "x-ratelimit-remaining",
+          "value": "95"
+        },
+        {
+          "key": "x-ratelimit-reset",
+          "value": "1792405471"
+        },
+        {
+          "key": "x-xss-protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "cf-cache-status",
+          "value": "DYNAMIC"
+        },
+        {
+          "key": "Nel",
+          "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+        },
+        {
+          "key": "Report-To",
+          "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=W1sISmmj1AgTgUaTA57BPdOVcSh2uqc82TO%2FmzBMcRTys1UNAImC8AqNomSxuNmeoY%2BVJEiXOORo402Jzj1Neb0oA%2FhXYjwWd8HvceF84bfb7x2nDw%2F8rgwavnxaaND1\"}]}"
+        },
+        {
+          "key": "Server",
+          "value": "cloudflare"
+        },
+        {
+          "key": "CF-RAY",
+          "value": "a4cf12cd3d134bf3-MXP"
+        }
+      ],
+      "response_body": {
+        "products": [],
+        "total": 0,
+        "skip": 0,
+        "limit": 0
+      },
+      "assertions": [
+        {
+          "name": "HTTP status is 200",
+          "passed": true
+        },
+        {
+          "name": "Response declares JSON",
+          "passed": true
+        },
+        {
+          "name": "Products array is empty",
+          "passed": true
+        },
+        {
+          "name": "No matches are counted",
+          "passed": true
+        },
+        {
+          "name": "Empty result starts at offset zero",
+          "passed": true
+        }
+      ],
+      "result": "PASS",
+      "actual_summary": "HTTP 200. products []; total 0; skip 0; limit 0."
+    },
+    {
+      "case_id": "API-06",
+      "title": "Filter products by category",
+      "type": "Positive / category filter",
+      "sent_at_utc": "2026-10-19T10:24:30.403Z",
+      "received_at_utc": "2026-10-19T10:24:30.667Z",
+      "request": {
+        "method": "GET",
+        "url": "https://dummyjson.com/products/category/beauty",
+        "headers": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "User-Agent",
+            "value": "PostmanRuntime/7.39.1",
+            "system": true
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache",
+            "system": true
+          },
+          {
+            "key": "Postman-Token",
+            "value": "135352a9-7f0a-4d3b-9d21-eaafe8261356",
+            "system": true
+          },
+          {
+            "key": "Host",
+            "value": "dummyjson.com",
+            "system": true
+          },
+          {
+            "key": "Accept-Encoding",
+            "value": "gzip, deflate, br",
+            "system": true
+          },
+          {
+            "key": "Connection",
+            "value": "keep-alive",
+            "system": true
+          }
+        ]
+      },
+      "expected": "HTTP 200; non-empty products array; every returned product belongs to beauty; IDs are unique.",
+      "http_status": 200,
+      "response_time_ms": 263,
+      "response_headers": [
+        {
+          "key": "Date",
+          "value": "Mon, 19 Oct 2026 10:24:30 GMT"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Transfer-Encoding",
+          "value": "chunked"
+        },
+        {
+          "key": "Connection",
+          "value": "keep-alive"
+        },
+        {
+          "key": "access-control-allow-credentials",
+          "value": "true"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "br"
+        },
+        {
+          "key": "etag",
+          "value": "W/\"1cf4-Pd61iORRRZBbfsgAkn4jilJMkkU\""
+        },
+        {
+          "key": "strict-transport-security",
+          "value": "max-age=15552000; includeSubDomains"
+        },
+        {
+          "key": "vary",
+          "value": "Origin, Accept-Encoding"
+        },
+        {
+          "key": "x-content-type-options",
+          "value": "nosniff"
+        },
+        {
+          "key": "x-dns-prefetch-control",
+          "value": "off"
+        },
+        {
+          "key": "x-download-options",
+          "value": "noopen"
+        },
+        {
+          "key": "x-frame-options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "x-ratelimit-limit",
+          "value": "100"
+        },
+        {
+          "key": "x-ratelimit-remaining",
+          "value": "99"
+        },
+        {
+          "key": "x-ratelimit-reset",
+          "value": "1792405481"
+        },
+        {
+          "key": "x-xss-protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "cf-cache-status",
+          "value": "DYNAMIC"
+        },
+        {
+          "key": "Nel",
+          "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+        },
+        {
+          "key": "Report-To",
+          "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=W32vIZg%2F2weEvr64zKbHClwtu5VnzuaWbdIF8vbFwaLCREohxLuOxhRIHpkbICpcxGGL19zewMK5lIx45WoC3r%2BHEPxFJaVmYC4JE%2FsD5K%2BGhHH%2FFC2l%2FvyxBxrQnoxu\"}]}"
+        },
+        {
+          "key": "Server",
+          "value": "cloudflare"
+        },
+        {
+          "key": "CF-RAY",
+          "value": "a4cf12d0b8654bf3-MXP"
+        }
+      ],
+      "response_body": {
+        "products": [
+          {
+            "id": 1,
+            "title": "Essence Mascara Lash Princess",
+            "description": "The Essence Mascara Lash Princess is a popular mascara known for its volumizing and lengthening effects. Achieve dramatic lashes with this long-lasting and cruelty-free formula.",
+            "category": "beauty",
+            "price": 9.99,
+            "discountPercentage": 10.48,
+            "rating": 2.56,
+            "stock": 99,
+            "tags": [
+              "beauty",
+              "mascara"
+            ],
+            "brand": "Essence",
+            "sku": "BEA-ESS-ESS-001",
+            "weight": 4,
+            "dimensions": {
+              "width": 15.14,
+              "height": 13.08,
+              "depth": 22.99
+            },
+            "warrantyInformation": "1 week warranty",
+            "shippingInformation": "Ships in 3-5 business days",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 3,
+                "comment": "Would not recommend!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Eleanor Collins",
+                "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Very satisfied!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Lucas Gordon",
+                "reviewerEmail": "lucas.gordon@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Highly impressed!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Eleanor Collins",
+                "reviewerEmail": "eleanor.collins@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 48,
+            "meta": {
+              "createdAt": "2025-10-09T14:47:01.588Z",
+              "updatedAt": "2026-05-23T11:27:41.868Z",
+              "barcode": "5784719087687",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/essence-mascara-lash-princess/thumbnail.webp"
+          },
+          {
+            "id": 2,
+            "title": "Eyeshadow Palette with Mirror",
+            "description": "The Eyeshadow Palette with Mirror offers a versatile range of eyeshadow shades for creating stunning eye looks. With a built-in mirror, it's convenient for on-the-go makeup application.",
+            "category": "beauty",
+            "price": 19.99,
+            "discountPercentage": 18.19,
+            "rating": 2.86,
+            "stock": 34,
+            "tags": [
+              "beauty",
+              "eyeshadow"
+            ],
+            "brand": "Glamour Beauty",
+            "sku": "BEA-GLA-EYE-002",
+            "weight": 9,
+            "dimensions": {
+              "width": 9.26,
+              "height": 22.47,
+              "depth": 27.67
+            },
+            "warrantyInformation": "1 year warranty",
+            "shippingInformation": "Ships in 2 weeks",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 5,
+                "comment": "Great product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Savannah Gomez",
+                "reviewerEmail": "savannah.gomez@x.dummyjson.com"
+              },
+              {
+                "rating": 4,
+                "comment": "Awesome product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Christian Perez",
+                "reviewerEmail": "christian.perez@x.dummyjson.com"
+              },
+              {
+                "rating": 1,
+                "comment": "Poor quality!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Nicholas Bailey",
+                "reviewerEmail": "nicholas.bailey@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "7 days return policy",
+            "minimumOrderQuantity": 20,
+            "meta": {
+              "createdAt": "2024-12-03T11:29:45.706Z",
+              "updatedAt": "2025-08-24T16:52:47.806Z",
+              "barcode": "9170275171413",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/eyeshadow-palette-with-mirror/thumbnail.webp"
+          },
+          {
+            "id": 3,
+            "title": "Powder Canister",
+            "description": "The Powder Canister is a finely milled setting powder designed to set makeup and control shine. With a lightweight and translucent formula, it provides a smooth and matte finish.",
+            "category": "beauty",
+            "price": 14.99,
+            "discountPercentage": 9.84,
+            "rating": 4.64,
+            "stock": 89,
+            "tags": [
+              "beauty",
+              "face powder"
+            ],
+            "brand": "Velvet Touch",
+            "sku": "BEA-VEL-POW-003",
+            "weight": 8,
+            "dimensions": {
+              "width": 29.27,
+              "height": 27.93,
+              "depth": 20.59
+            },
+            "warrantyInformation": "3 months warranty",
+            "shippingInformation": "Ships in 1-2 business days",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 4,
+                "comment": "Would buy again!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Alexander Jones",
+                "reviewerEmail": "alexander.jones@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Highly impressed!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Elijah Cruz",
+                "reviewerEmail": "elijah.cruz@x.dummyjson.com"
+              },
+              {
+                "rating": 1,
+                "comment": "Very dissatisfied!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Avery Perez",
+                "reviewerEmail": "avery.perez@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 22,
+            "meta": {
+              "createdAt": "2025-01-08T18:30:12.844Z",
+              "updatedAt": "2025-11-26T14:49:26.980Z",
+              "barcode": "8418883906837",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/powder-canister/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/powder-canister/thumbnail.webp"
+          },
+          {
+            "id": 4,
+            "title": "Red Lipstick",
+            "description": "The Red Lipstick is a classic and bold choice for adding a pop of color to your lips. With a creamy and pigmented formula, it provides a vibrant and long-lasting finish.",
+            "category": "beauty",
+            "price": 12.99,
+            "discountPercentage": 12.16,
+            "rating": 4.36,
+            "stock": 91,
+            "tags": [
+              "beauty",
+              "lipstick"
+            ],
+            "brand": "Chic Cosmetics",
+            "sku": "BEA-CHI-LIP-004",
+            "weight": 1,
+            "dimensions": {
+              "width": 18.11,
+              "height": 28.38,
+              "depth": 22.17
+            },
+            "warrantyInformation": "3 year warranty",
+            "shippingInformation": "Ships in 1 week",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 4,
+                "comment": "Great product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Liam Garcia",
+                "reviewerEmail": "liam.garcia@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Great product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Ruby Andrews",
+                "reviewerEmail": "ruby.andrews@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Would buy again!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Clara Berry",
+                "reviewerEmail": "clara.berry@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "7 days return policy",
+            "minimumOrderQuantity": 40,
+            "meta": {
+              "createdAt": "2025-11-22T23:28:00.911Z",
+              "updatedAt": "2026-01-26T01:31:40.721Z",
+              "barcode": "9467746727219",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/red-lipstick/thumbnail.webp"
+          },
+          {
+            "id": 5,
+            "title": "Red Nail Polish",
+            "description": "The Red Nail Polish offers a rich and glossy red hue for vibrant and polished nails. With a quick-drying formula, it provides a salon-quality finish at home.",
+            "category": "beauty",
+            "price": 8.99,
+            "discountPercentage": 11.44,
+            "rating": 4.32,
+            "stock": 79,
+            "tags": [
+              "beauty",
+              "nail polish"
+            ],
+            "brand": "Nail Couture",
+            "sku": "BEA-NAI-NAI-005",
+            "weight": 8,
+            "dimensions": {
+              "width": 21.63,
+              "height": 16.48,
+              "depth": 29.84
+            },
+            "warrantyInformation": "1 month warranty",
+            "shippingInformation": "Ships overnight",
+            "availabilityStatus": "In Stock",
+            "reviews": [
+              {
+                "rating": 2,
+                "comment": "Poor quality!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Benjamin Wilson",
+                "reviewerEmail": "benjamin.wilson@x.dummyjson.com"
+              },
+              {
+                "rating": 5,
+                "comment": "Great product!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Liam Smith",
+                "reviewerEmail": "liam.smith@x.dummyjson.com"
+              },
+              {
+                "rating": 1,
+                "comment": "Very unhappy with my purchase!",
+                "date": "2025-04-30T09:41:02.053Z",
+                "reviewerName": "Clara Berry",
+                "reviewerEmail": "clara.berry@x.dummyjson.com"
+              }
+            ],
+            "returnPolicy": "No return policy",
+            "minimumOrderQuantity": 22,
+            "meta": {
+              "createdAt": "2025-10-03T07:39:53.470Z",
+              "updatedAt": "2026-04-24T00:21:44.635Z",
+              "barcode": "4063010628104",
+              "qrCode": "https://cdn.dummyjson.com/public/qr-code.png"
+            },
+            "images": [
+              "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/1.webp"
+            ],
+            "thumbnail": "https://cdn.dummyjson.com/product-images/beauty/red-nail-polish/thumbnail.webp"
+          }
+        ],
+        "total": 5,
+        "skip": 0,
+        "limit": 5
+      },
+      "assertions": [
+        {
+          "name": "HTTP status is 200",
+          "passed": true
+        },
+        {
+          "name": "Response declares JSON",
+          "passed": true
+        },
+        {
+          "name": "Beauty category contains products",
+          "passed": true
+        },
+        {
+          "name": "Every product belongs to beauty",
+          "passed": true
+        },
+        {
+          "name": "Category result IDs are unique",
+          "passed": true
+        },
+        {
+          "name": "Category total covers the returned page",
+          "passed": true
+        }
+      ],
+      "result": "PASS",
+      "actual_summary": "HTTP 200. 5 products; all categories beauty; total 5."
+    },
+    {
+      "case_id": "API-07",
+      "title": "Sort products by ascending price",
+      "type": "Positive / sorting",
+      "sent_at_utc": "2026-10-19T10:24:30.955Z",
+      "received_at_utc": "2026-10-19T10:24:31.341Z",
+      "request": {
+        "method": "GET",
+        "url": "https://dummyjson.com/products?sortBy=price&order=asc&limit=5&select=title,price",
+        "headers": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "User-Agent",
+            "value": "PostmanRuntime/7.39.1",
+            "system": true
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache",
+            "system": true
+          },
+          {
+            "key": "Postman-Token",
+            "value": "96e66c25-0319-4c6e-b91f-ccfd0fd2b890",
+            "system": true
+          },
+          {
+            "key": "Host",
+            "value": "dummyjson.com",
+            "system": true
+          },
+          {
+            "key": "Accept-Encoding",
+            "value": "gzip, deflate, br",
+            "system": true
+          },
+          {
+            "key": "Connection",
+            "value": "keep-alive",
+            "system": true
+          }
+        ]
+      },
+      "expected": "HTTP 200; five products; numeric prices in non-decreasing order, including equal prices as valid.",
+      "http_status": 200,
+      "response_time_ms": 386,
+      "response_headers": [
+        {
+          "key": "Date",
+          "value": "Mon, 19 Oct 2026 10:24:31 GMT"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Transfer-Encoding",
+          "value": "chunked"
+        },
+        {
+          "key": "Connection",
+          "value": "keep-alive"
+        },
+        {
+          "key": "access-control-allow-credentials",
+          "value": "true"
+        },
+        {
+          "key": "etag",
+          "value": "W/\"10c-ZY5lG0GBLcpRArz93aKYxufyqME\""
+        },
+        {
+          "key": "strict-transport-security",
+          "value": "max-age=15552000; includeSubDomains"
+        },
+        {
+          "key": "vary",
+          "value": "Origin, Accept-Encoding"
+        },
+        {
+          "key": "x-content-type-options",
+          "value": "nosniff"
+        },
+        {
+          "key": "x-dns-prefetch-control",
+          "value": "off"
+        },
+        {
+          "key": "x-download-options",
+          "value": "noopen"
+        },
+        {
+          "key": "x-frame-options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "x-ratelimit-limit",
+          "value": "100"
+        },
+        {
+          "key": "x-ratelimit-remaining",
+          "value": "98"
+        },
+        {
+          "key": "x-ratelimit-reset",
+          "value": "1792405481"
+        },
+        {
+          "key": "x-xss-protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "cf-cache-status",
+          "value": "DYNAMIC"
+        },
+        {
+          "key": "Nel",
+          "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+        },
+        {
+          "key": "Report-To",
+          "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=%2B0fF9XC%2F8knUVUUMeLD7yGxaFU7gM%2BT1AMuPsUVStNnZLoXLZsqLSujleXwzXYxFQ45nf%2FoSd1lZSpMe8B7s0J7pPZZM%2FmeCj%2Fx9BgdcXSVV%2B9uoRou8FbhfKGW9l0sL\"}]}"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "br"
+        },
+        {
+          "key": "Server",
+          "value": "cloudflare"
+        },
+        {
+          "key": "CF-RAY",
+          "value": "a4cf12d4fc8f4bf3-MXP"
+        }
+      ],
+      "response_body": {
+        "products": [
+          {
+            "id": 31,
+            "title": "Lemon",
+            "price": 0.79
+          },
+          {
+            "id": 26,
+            "title": "Green Chili Pepper",
+            "price": 0.99
+          },
+          {
+            "id": 42,
+            "title": "Water",
+            "price": 0.99
+          },
+          {
+            "id": 25,
+            "title": "Green Bell Pepper",
+            "price": 1.29
+          },
+          {
+            "id": 21,
+            "title": "Cucumber",
+            "price": 1.49
+          }
+        ],
+        "total": 194,
+        "skip": 0,
+        "limit": 5
+      },
+      "assertions": [
+        {
+          "name": "HTTP status is 200",
+          "passed": true
+        },
+        {
+          "name": "Response declares JSON",
+          "passed": true
+        },
+        {
+          "name": "Sorted page contains five products",
+          "passed": true
+        },
+        {
+          "name": "All compared prices are numeric",
+          "passed": true
+        },
+        {
+          "name": "Prices are sorted in ascending order",
+          "passed": true
+        },
+        {
+          "name": "Sorting preserves the requested page size",
+          "passed": true
+        }
+      ],
+      "result": "PASS",
+      "actual_summary": "HTTP 200. Prices in returned order: 0.79, 0.99, 0.99, 1.29, 1.49; limit 5."
+    },
+    {
+      "case_id": "API-08",
+      "title": "Retrieve category names for filter controls",
+      "type": "Positive / response schema",
+      "sent_at_utc": "2026-10-19T10:24:31.588Z",
+      "received_at_utc": "2026-10-19T10:24:31.997Z",
+      "request": {
+        "method": "GET",
+        "url": "https://dummyjson.com/products/category-list",
+        "headers": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "User-Agent",
+            "value": "PostmanRuntime/7.39.1",
+            "system": true
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache",
+            "system": true
+          },
+          {
+            "key": "Postman-Token",
+            "value": "3b444608-26eb-4604-99ae-723141f1bf5d",
+            "system": true
+          },
+          {
+            "key": "Host",
+            "value": "dummyjson.com",
+            "system": true
+          },
+          {
+            "key": "Accept-Encoding",
+            "value": "gzip, deflate, br",
+            "system": true
+          },
+          {
+            "key": "Connection",
+            "value": "keep-alive",
+            "system": true
+          }
+        ]
+      },
+      "expected": "HTTP 200; non-empty array of unique non-empty strings; documented example category beauty is included.",
+      "http_status": 200,
+      "response_time_ms": 408,
+      "response_headers": [
+        {
+          "key": "Date",
+          "value": "Mon, 19 Oct 2026 10:24:32 GMT"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Transfer-Encoding",
+          "value": "chunked"
+        },
+        {
+          "key": "Connection",
+          "value": "keep-alive"
+        },
+        {
+          "key": "access-control-allow-credentials",
+          "value": "true"
+        },
+        {
+          "key": "etag",
+          "value": "W/\"156-8GSmapwnkZIOOiVZRKE52oLajsg\""
+        },
+        {
+          "key": "strict-transport-security",
+          "value": "max-age=15552000; includeSubDomains"
+        },
+        {
+          "key": "vary",
+          "value": "Origin, Accept-Encoding"
+        },
+        {
+          "key": "x-content-type-options",
+          "value": "nosniff"
+        },
+        {
+          "key": "x-dns-prefetch-control",
+          "value": "off"
+        },
+        {
+          "key": "x-download-options",
+          "value": "noopen"
+        },
+        {
+          "key": "x-frame-options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "x-ratelimit-limit",
+          "value": "100"
+        },
+        {
+          "key": "x-ratelimit-remaining",
+          "value": "97"
+        },
+        {
+          "key": "x-ratelimit-reset",
+          "value": "1792405481"
+        },
+        {
+          "key": "x-xss-protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "cf-cache-status",
+          "value": "DYNAMIC"
+        },
+        {
+          "key": "Nel",
+          "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+        },
+        {
+          "key": "Report-To",
+          "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=rcljuhTE8D5uaVzpcQXbvhYHtbRkR9jORQ%2BcsScE6BhvT2KDpp5XW2HwRMevUEUXIOxjWgRpmZyvmUIgFRWwOZTKSJSk9zq5v16iTVnTsdJNnLh2Wr%2BETjc%2B32WtT6cu\"}]}"
+        },
+        {
+          "key": "Content-Encoding",
+          "value": "br"
+        },
+        {
+          "key": "Server",
+          "value": "cloudflare"
+        },
+        {
+          "key": "CF-RAY",
+          "value": "a4cf12d918f54bf3-MXP"
+        }
+      ],
+      "response_body": [
+        "beauty",
+        "fragrances",
+        "furniture",
+        "groceries",
+        "home-decoration",
+        "kitchen-accessories",
+        "laptops",
+        "mens-shirts",
+        "mens-shoes",
+        "mens-watches",
+        "mobile-accessories",
+        "motorcycle",
+        "skin-care",
+        "smartphones",
+        "sports-accessories",
+        "sunglasses",
+        "tablets",
+        "tops",
+        "vehicle",
+        "womens-bags",
+        "womens-dresses",
+        "womens-jewellery",
+        "womens-shoes",
+        "womens-watches"
+      ],
+      "assertions": [
+        {
+          "name": "HTTP status is 200",
+          "passed": true
+        },
+        {
+          "name": "Response declares JSON",
+          "passed": true
+        },
+        {
+          "name": "Category list is a non-empty array",
+          "passed": true
+        },
+        {
+          "name": "Each category is a non-empty string",
+          "passed": true
+        },
+        {
+          "name": "Category names are unique",
+          "passed": true
+        },
+        {
+          "name": "Documented beauty category is present",
+          "passed": true
+        }
+      ],
+      "result": "PASS",
+      "actual_summary": "HTTP 200. 24 unique category names; beauty is present."
+    },
+    {
+      "case_id": "API-09",
+      "title": "Reject a non-existent product identifier",
+      "type": "Negative / resource not found",
+      "sent_at_utc": "2026-10-19T10:24:32.287Z",
+      "received_at_utc": "2026-10-19T10:24:32.667Z",
+      "request": {
+        "method": "GET",
+        "url": "https://dummyjson.com/products/999999",
+        "headers": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "User-Agent",
+            "value": "PostmanRuntime/7.39.1",
+            "system": true
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache",
+            "system": true
+          },
+          {
+            "key": "Postman-Token",
+            "value": "409305f6-7a3a-4e17-91cd-9e2e0a18b34f",
+            "system": true
+          },
+          {
+            "key": "Host",
+            "value": "dummyjson.com",
+            "system": true
+          },
+          {
+            "key": "Accept-Encoding",
+            "value": "gzip, deflate, br",
+            "system": true
+          },
+          {
+            "key": "Connection",
+            "value": "keep-alive",
+            "system": true
+          }
+        ]
+      },
+      "expected": "HTTP 404; JSON object with a non-empty message; no product id, title, or price fields.",
+      "http_status": 404,
+      "response_time_ms": 379,
+      "response_headers": [
+        {
+          "key": "Date",
+          "value": "Mon, 19 Oct 2026 10:24:32 GMT"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Length",
+          "value": "48"
+        },
+        {
+          "key": "Connection",
+          "value": "keep-alive"
+        },
+        {
+          "key": "access-control-allow-credentials",
+          "value": "true"
+        },
+        {
+          "key": "etag",
+          "value": "W/\"30-dxf2ydEcfj8WasxTbilcMsjMtCM\""
+        },
+        {
+          "key": "strict-transport-security",
+          "value": "max-age=15552000; includeSubDomains"
+        },
+        {
+          "key": "vary",
+          "value": "Origin, Accept-Encoding"
+        },
+        {
+          "key": "x-content-type-options",
+          "value": "nosniff"
+        },
+        {
+          "key": "x-dns-prefetch-control",
+          "value": "off"
+        },
+        {
+          "key": "x-download-options",
+          "value": "noopen"
+        },
+        {
+          "key": "x-frame-options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "x-ratelimit-limit",
+          "value": "100"
+        },
+        {
+          "key": "x-ratelimit-remaining",
+          "value": "96"
+        },
+        {
+          "key": "x-ratelimit-reset",
+          "value": "1792405481"
+        },
+        {
+          "key": "x-xss-protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "cf-cache-status",
+          "value": "DYNAMIC"
+        },
+        {
+          "key": "Nel",
+          "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+        },
+        {
+          "key": "Report-To",
+          "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=ii4ZlRM%2FC5dAsZkCyQklsliJ%2FUot7CS7HbbqRlI1sTh1FC%2BZld3%2F0uK8QxQwBg6W%2FJ9CxTfIgaosIOWPoTxer%2FrN00nlDV8Ecv5KQfmTEA6gnTgLMWUigiayNMNNzBOv\"}]}"
+        },
+        {
+          "key": "Server",
+          "value": "cloudflare"
+        },
+        {
+          "key": "CF-RAY",
+          "value": "a4cf12dd4db84bf3-MXP"
+        }
+      ],
+      "response_body": {
+        "message": "Product with id '999999' not found"
+      },
+      "assertions": [
+        {
+          "name": "HTTP status is 404",
+          "passed": true
+        },
+        {
+          "name": "Response declares JSON",
+          "passed": true
+        },
+        {
+          "name": "A readable JSON error message is returned",
+          "passed": true
+        },
+        {
+          "name": "Missing resource is not returned as a product",
+          "passed": true
+        }
+      ],
+      "result": "PASS",
+      "actual_summary": "HTTP 404. Error message: Product with id '999999' not found."
+    },
+    {
+      "case_id": "API-10",
+      "title": "Reject access to current user without a token",
+      "type": "Negative / authentication",
+      "sent_at_utc": "2026-10-19T10:24:32.941Z",
+      "received_at_utc": "2026-10-19T10:24:33.360Z",
+      "request": {
+        "method": "GET",
+        "url": "https://dummyjson.com/auth/me",
+        "headers": [
+          {
+            "key": "Accept",
+            "value": "application/json"
+          },
+          {
+            "key": "User-Agent",
+            "value": "PostmanRuntime/7.39.1",
+            "system": true
+          },
+          {
+            "key": "Cache-Control",
+            "value": "no-cache",
+            "system": true
+          },
+          {
+            "key": "Postman-Token",
+            "value": "67d57665-3f4f-4aaa-ad78-051cba8f0225",
+            "system": true
+          },
+          {
+            "key": "Host",
+            "value": "dummyjson.com",
+            "system": true
+          },
+          {
+            "key": "Accept-Encoding",
+            "value": "gzip, deflate, br",
+            "system": true
+          },
+          {
+            "key": "Connection",
+            "value": "keep-alive",
+            "system": true
+          }
+        ]
+      },
+      "expected": "HTTP 401; JSON error with a non-empty message; no user identity or access token in the body.",
+      "http_status": 401,
+      "response_time_ms": 419,
+      "response_headers": [
+        {
+          "key": "Date",
+          "value": "Mon, 19 Oct 2026 10:24:33 GMT"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/json; charset=utf-8"
+        },
+        {
+          "key": "Content-Length",
+          "value": "38"
+        },
+        {
+          "key": "Connection",
+          "value": "keep-alive"
+        },
+        {
+          "key": "access-control-allow-credentials",
+          "value": "true"
+        },
+        {
+          "key": "etag",
+          "value": "W/\"26-TtDLQtfPAa5hR/eRnAb5xDEDYiA\""
+        },
+        {
+          "key": "Set-Cookie",
+          "value": "accessToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT"
+        },
+        {
+          "key": "Set-Cookie",
+          "value": "refreshToken=; Path=/; Expires=Thu, 01 Jan 1970 00:00:00 GMT"
+        },
+        {
+          "key": "strict-transport-security",
+          "value": "max-age=15552000; includeSubDomains"
+        },
+        {
+          "key": "vary",
+          "value": "Origin, Accept-Encoding"
+        },
+        {
+          "key": "x-content-type-options",
+          "value": "nosniff"
+        },
+        {
+          "key": "x-dns-prefetch-control",
+          "value": "off"
+        },
+        {
+          "key": "x-download-options",
+          "value": "noopen"
+        },
+        {
+          "key": "x-frame-options",
+          "value": "SAMEORIGIN"
+        },
+        {
+          "key": "x-ratelimit-limit",
+          "value": "100"
+        },
+        {
+          "key": "x-ratelimit-remaining",
+          "value": "95"
+        },
+        {
+          "key": "x-ratelimit-reset",
+          "value": "1792405481"
+        },
+        {
+          "key": "x-xss-protection",
+          "value": "1; mode=block"
+        },
+        {
+          "key": "cf-cache-status",
+          "value": "DYNAMIC"
+        },
+        {
+          "key": "Nel",
+          "value": "{\"report_to\":\"cf-nel\",\"success_fraction\":0.0,\"max_age\":604800}"
+        },
+        {
+          "key": "Report-To",
+          "value": "{\"group\":\"cf-nel\",\"max_age\":604800,\"endpoints\":[{\"url\":\"https://a.nel.cloudflare.com/report/v4?s=wJAiTsPc%2FI2MTcW6sfrOZ%2FIjxfwPteSYYROWNkS4rBRnuGy69AnGA6%2B%2F5ve5g5R862w4QF9b%2Bw6a7kN4xnu%2FuyADAhJ23je7FZLG6jLM3wtB6VKQ77ej3rVRzozowl8Y\"}]}"
+        },
+        {
+          "key": "Server",
+          "value": "cloudflare"
+        },
+        {
+          "key": "CF-RAY",
+          "value": "a4cf12e179de4bf3-MXP"
+        }
+      ],
+      "response_body": {
+        "message": "Access Token is required"
+      },
+      "assertions": [
+        {
+          "name": "HTTP status is 401",
+          "passed": true
+        },
+        {
+          "name": "Response declares JSON",
+          "passed": true
+        },
+        {
+          "name": "Authentication error is readable",
+          "passed": true
+        },
+        {
+          "name": "No authenticated user or token is disclosed",
+          "passed": true
+        }
+      ],
+      "result": "PASS",
+      "actual_summary": "HTTP 401. Error message: Access Token is required."
+    }
+  ]
+}
